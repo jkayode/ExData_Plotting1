@@ -23,9 +23,9 @@ names(data) <- names(read.csv(filePath, nrows=1, sep=";"))
 #data$Time <- strptime(data$Time, format="%H:%M:%S")
 data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
-## Generate Plot 1
-hist(data$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
-
-## Saving "Plot1.png" to file
-dev.copy(png, file="./ExData_Plotting1/plot1.png", height=480, width=480)
-dev.off()
+## Generate Plot 2
+plot(data$DateTime, data$Global_active_power, type="l", col="black", xlab="", ylab="Global Active Power (kilowatts)", main="")
+ 
+## Saving "Plot2.png" to file
+dev.copy(png, file="./ExData_Plotting1/plot2.png", height=480, width=480)
+dev.off() 
