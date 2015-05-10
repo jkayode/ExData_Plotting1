@@ -1,6 +1,4 @@
-# Set working directory
-setwd("C:/Users/Solape/Desktop/Coursera/Exploratory Data Analysis")
-
+# Set working directory using setwd()
 # Check if file as been previously downloaded, otherwise download and unzip
 if(!file.exists("./Data/data.zip")){
         dir.create("Data")
@@ -24,12 +22,8 @@ names(data) <- names(read.csv(filePath, nrows=1, sep=";"))
 data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
 ## Generate Plot 1
-# Specify graphic parameters to resize character proportionately in respect to default
-par()
-
-# Generate plot
 hist(data$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
 
 ## Saving "Plot1.png" to file
-dev.copy(png, file="./ExData_Plotting1/plot1.png", height=480, width=480)
+dev.copy(png, file="./ExData_Plotting1/plot1a.png", height=480, width=480)
 dev.off()

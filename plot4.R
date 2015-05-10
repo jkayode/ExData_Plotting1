@@ -1,6 +1,4 @@
-# Set working directory
-setwd("C:/Users/Solape/Desktop/Coursera/Exploratory Data Analysis")
-
+# Set working directory using setwd()
 # Check if file as been previously downloaded, otherwise download and unzip
 if(!file.exists("./Data/data.zip")){
         dir.create("Data")
