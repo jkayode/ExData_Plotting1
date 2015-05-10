@@ -25,7 +25,7 @@ data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/
 
 ## Generate Plot 3
 # Specify graphic parameters to resize character proportionately in respect to default
-par(cex=0.5)
+par()
 
 # Generate plot
 plot(data$DateTime, data$Sub_metering_1, type="l", col="black", xlab="", ylab="Energy sub metering", main="")

@@ -25,7 +25,7 @@ data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/
 
 ## Generate Plot 2
 # Specify graphic parameters to resize character proportionately in respect to default
-par(cex=0.5)
+par()
 
 # Generate plot
 plot(data$DateTime, data$Global_active_power, type="l", col="black", xlab="", ylab="Global Active Power (kilowatts)", main="")
