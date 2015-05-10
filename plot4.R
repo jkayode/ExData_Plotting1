@@ -1,5 +1,5 @@
 # Set working directory
-setwd("C:/Users/user/datasciencecoursera/Exploratory Data Analysis")
+setwd("C:/Users/Solape/Desktop/Coursera/Exploratory Data Analysis")
 
 # Check if file as been previously downloaded, otherwise download and unzip
 if(!file.exists("./Data/data.zip")){
@@ -23,23 +23,24 @@ names(data) <- names(read.csv(filePath, nrows=1, sep=";"))
 #data$Time <- strptime(data$Time, format="%H:%M:%S")
 data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
-# Generate Plot 4
-# Specify the graphic parameters to display 4 plots
-par(mfcol=c(2,2))
+## Generate Plot 4
+# Specify the graphic parameters to display 4 plots in 2 columns 
+# and resize character size proportionately in respect to default
+par(mfcol=c(2,2), cex=0.5)
 
-# Generate the first plot
+# Generate the first plot in first column
 plot(data$DateTime, data$Global_active_power, type="l", col="black", xlab="", ylab="Global Active Power (kilowatts)", main="")
 
-# Generate the second plot
+# Generate the second plot in first column
 plot(data$DateTime, data$Sub_metering_1, type="l", col="black", xlab="", ylab="Energy sub metering", main="")
 lines(data$DateTime, data$Sub_metering_2, col="red")
 lines(data$DateTime, data$Sub_metering_3, col="blue")
 legend("topright", lwd=1, lty=1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-# Generate the third plot
+# Generate the third plot (first plot in the second column)
 plot(data$DateTime, data$Voltage, type="l", col="black", xlab="datetime", ylab="Voltage", main="")
 
-# Generate the fourth plot
+# Generate the fourth plot (second plot in the second column)
 plot(data$DateTime, data$Global_reactive_power, type="l", col="black", xlab="datetime", ylab="Global_reactive_power", main="")
 
 ## Saving "Plot4.png" to file

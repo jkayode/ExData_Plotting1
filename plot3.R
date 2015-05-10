@@ -1,5 +1,5 @@
 # Set working directory
-setwd("C:/Users/user/datasciencecoursera/Exploratory Data Analysis")
+setwd("C:/Users/Solape/Desktop/Coursera/Exploratory Data Analysis")
 
 # Check if file as been previously downloaded, otherwise download and unzip
 if(!file.exists("./Data/data.zip")){
@@ -18,12 +18,16 @@ data <- read.csv(filePath, skip=66637, nrows=2880, na.strings = "?", header=FALS
 # Read the variable names
 names(data) <- names(read.csv(filePath, nrows=1, sep=";"))
 
-#Add a new column that combines and converts data$Date and data$Time as follows: 
-#data$Date <- as.Date(data$Date, format="%d/%m/%y") and
-#data$Time <- strptime(data$Time, format="%H:%M:%S")
+## Add a new column that combines and converts data$Date and data$Time as follows: 
+# data$Date <- as.Date(data$Date, format="%d/%m/%y") and
+# data$Time <- strptime(data$Time, format="%H:%M:%S")
 data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
 ## Generate Plot 3
+# Specify graphic parameters to resize character proportionately in respect to default
+par(cex=0.5)
+
+# Generate plot
 plot(data$DateTime, data$Sub_metering_1, type="l", col="black", xlab="", ylab="Energy sub metering", main="")
 lines(data$DateTime, data$Sub_metering_2, col="red")
 lines(data$DateTime, data$Sub_metering_3, col="blue")

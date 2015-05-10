@@ -1,5 +1,5 @@
 # Set working directory
-setwd("C:/Users/user/datasciencecoursera/Exploratory Data Analysis")
+setwd("C:/Users/Solape/Desktop/Coursera/Exploratory Data Analysis")
 
 # Check if file as been previously downloaded, otherwise download and unzip
 if(!file.exists("./Data/data.zip")){
@@ -24,6 +24,10 @@ names(data) <- names(read.csv(filePath, nrows=1, sep=";"))
 data$DateTime <- as.POSIXct(paste(data$Date, data$Time, sep=" "), format="%d/%m/%Y %H:%M:%S")
 
 ## Generate Plot 2
+# Specify graphic parameters to resize character proportionately in respect to default
+par(cex=0.5)
+
+# Generate plot
 plot(data$DateTime, data$Global_active_power, type="l", col="black", xlab="", ylab="Global Active Power (kilowatts)", main="")
  
 ## Saving "Plot2.png" to file
